@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Не просто прогулка — Интерактивные маршруты Череповца</title>
+  <meta name="description" content="Интерактивные прогулочные маршруты по Череповцу с заданиями, картами и заметками.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <!-- Главный экран -->
+    <section id="view-hero" class="view view-hero" aria-label="Главный экран">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/bridge.jpg" alt="" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-slogan">Не просто прогулка: исследуй, разгадывай, открывай.</h1>
+        <button type="button" id="btn-to-routes" class="hero-cta">
+          <span>Интерактивные маршруты</span>
+          <svg class="icon-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4.5 10h11m0 0-4.25-4.25M15.5 10l-4.25 4.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Экран выбора маршрутов -->
+    <section id="view-routes" class="view view-routes hidden" aria-label="Выбор маршрута">
+      <header class="top-bar">
+        <div class="top-bar-inner">
+          <button type="button" id="btn-back-home" class="ghost-btn">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M15.5 10h-11m0 0 4.25-4.25M4.5 10l4.25 4.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>На главную</span>
+          </button>
+          <div class="overall-progress" id="overall-progress" aria-live="polite">
+            <span class="overall-progress-label">Выполнено</span>
+            <span class="overall-progress-value" id="overall-progress-value">0 / 15</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="container routes-main">
+        <div class="section-intro">
+          <h2 class="section-title">Интерактивные маршруты</h2>
+          <p class="section-subtitle">Выберите направление прогулки, откройте карту и выполняйте задания по пути — ваш прогресс сохраняется автоматически.</p>
+        </div>
+
+        <div id="routes-grid" class="routes-grid" role="list">
+          <!-- Карточки маршрутов рендерятся из JS без нумерации -->
+        </div>
+      </main>
+    </section>
+
+    <!-- Экран отдельного маршрута -->
+    <section id="view-detail" class="view view-detail hidden" aria-label="Страница маршрута">
+      <header class="top-bar">
+        <div class="top-bar-inner">
+          <button type="button" id="btn-back-routes" class="ghost-btn">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M15.5 10h-11m0 0 4.25-4.25M4.5 10l4.25 4.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Все маршруты</span>
+          </button>
+          <div class="route-header-meta">
+            <span class="route-progress-pill" id="detail-progress-pill">0 / 3</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="container detail-main">
+        <nav class="route-switcher" id="route-switcher" aria-label="Переключение маршрутов"></nav>
+
+        <div class="detail-head">
+          <div>
+            <p class="detail-kicker" id="detail-kicker"></p>
+            <h2 class="detail-title" id="detail-title"></h2>
+          </div>
+          <div class="detail-progress-wrap">
+            <div class="progress-track">
+              <div class="progress-fill" id="detail-progress-fill"></div>
+            </div>
+            <button type="button" id="btn-reset-route" class="text-link-btn">Сбросить прогресс</button>
+          </div>
+        </div>
+
+        <!-- Карта маршрута -->
+        <div class="map-card">
+          <div class="map-card-head">
+            <span class="map-card-label">Карта маршрута</span>
+            <button type="button" id="btn-open-lightbox" class="subtle-btn">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M8.5 3.5H4.5a1 1 0 0 0-1 1v4m8-5h4a1 1 0 0 1 1 1v4m0 3v4a1 1 0 0 1-1 1h-4m-8-5v4a1 1 0 0 0 1 1h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Открыть крупно</span>
+            </button>
+          </div>
+          <button type="button" id="map-image-trigger" class="map-image-wrap" aria-label="Увеличить карту маршрута">
+            <img id="detail-map-img" src="" alt="" class="detail-map-img">
+            <span class="map-zoom-hint">Нажмите, чтобы приблизить карту</span>
+          </button>
+        </div>
+
+        <!-- Интерактивные задания -->
+        <div class="tasks-section">
+          <div class="tasks-section-head">
+            <h3 class="tasks-heading">Интерактивные задания</h3>
+            <span class="tasks-hint">Отмечайте выполненное и сохраняйте заметки</span>
+          </div>
+          <div id="tasks-list" class="tasks-list"></div>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <!-- Модальное окно увеличения карты -->
+  <div id="lightbox" class="modal hidden" role="dialog" aria-modal="true" aria-label="Просмотр карты маршрута">
+    <div class="modal-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-panel">
+      <div class="lightbox-toolbar">
+        <span class="lightbox-title" id="lightbox-title">Карта маршрута</span>
+        <div class="lightbox-controls">
+          <button type="button" id="zoom-out" class="icon-btn" aria-label="Уменьшить">−</button>
+          <span class="zoom-level" id="zoom-level">100%</span>
+          <button type="button" id="zoom-in" class="icon-btn" aria-label="Увеличить">+</button>
+          <button type="button" id="zoom-reset" class="subtle-btn">Сброс</button>
+          <button type="button" id="lightbox-close" class="icon-btn" aria-label="Закрыть">✕</button>
+        </div>
+      </div>
+      <div class="lightbox-viewport" id="lightbox-viewport">
+        <img id="lightbox-img" src="" alt="" class="lightbox-img" draggable="false">
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно подтверждения сброса -->
+  <div id="confirm-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <div class="modal-backdrop" id="confirm-backdrop"></div>
+    <div class="confirm-panel">
+      <h3 id="confirm-title" class="confirm-title">Сбросить прогресс маршрута?</h3>
+      <p class="confirm-desc">Все отметки, заметки, счётчики и загруженные фото для этого маршрута будут очищены.</p>
+      <div class="confirm-actions">
+        <button type="button" id="confirm-cancel" class="subtle-btn">Отмена</button>
+        <button type="button" id="confirm-ok" class="danger-btn">Сбросить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Уведомление (toast) -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
