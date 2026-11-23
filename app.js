@@ -13,7 +13,15 @@
     museum:
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9"/><path d="M19 21V9"/><path d="M9 21v-8"/><path d="M15 21v-8"/><path d="M2 9l10-6 10 6H2Z"/></svg>',
     embankment:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c2.2 0 2.2-2 4.4-2s2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 2.4-2"/><path d="M2 20c2.2 0 2.2-2 4.4-2s2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 2.4-2"/><circle cx="12" cy="8" r="3"/></svg>'
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c2.2 0 2.2-2 4.4-2s2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 2.4-2"/><path d="M2 20c2.2 0 2.2-2 4.4-2s2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 2.4-2"/><circle cx="12" cy="8" r="3"/></svg>',
+    manor:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>',
+    palette:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9.5" cy="9" r="1"/><circle cx="14.5" cy="9" r="1"/><circle cx="8.5" cy="13.5" r="1"/><path d="M15 14.5a1.5 1.5 0 0 1 0 3h-1.5"/></svg>',
+    compass:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5 15.5 8.5"/></svg>',
+    monument:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h14"/><path d="M7 21v-3h10v3"/><path d="M9 18V8l3-4 3 4v10"/></svg>'
   };
 
   const ROUTES = [
@@ -178,6 +186,69 @@
     }
   ];
 
+  const IMPORTANT_OBJECTS = [
+    {
+      id: 'vereschagin',
+      title: 'Дом-Музей Верещагина',
+      shortTitle: 'Дом-Музей Верещагина',
+      kicker: 'Важные объекты · мемориальный музей',
+      summary: 'Усадьба семьи Верещагиных — облик здания и историческая справка.',
+      image: 'assets/obj-vereschagin.jpg',
+      historyImage: 'assets/obj-vereschagin-history.jpg',
+      icon: ICONS.manor
+    },
+    {
+      id: 'milutin',
+      title: 'Дом-Музей И. А. Милютина',
+      shortTitle: 'Дом-Музей Милютина',
+      kicker: 'Важные объекты · историческая усадьба',
+      summary: 'Дом городского головы Ивана Андреевича Милютина и история этого места.',
+      image: 'assets/obj-milutin.jpg',
+      historyImage: 'assets/obj-milutin-history.jpg',
+      icon: ICONS.museum
+    },
+    {
+      id: 'galskih',
+      title: 'Усадьба Гальских',
+      shortTitle: 'Усадьба Гальских',
+      kicker: 'Важные объекты · архитектурный ансамбль',
+      summary: 'Дворянская усадьба на берегу Шексны — облик и история памятника.',
+      image: 'assets/obj-galskih.jpg',
+      historyImage: 'assets/obj-galskih-history.jpg',
+      icon: ICONS.manor
+    },
+    {
+      id: 'hud-muzey',
+      title: 'Художественный музей',
+      shortTitle: 'Художественный музей',
+      kicker: 'Важные объекты · искусство и культура',
+      summary: 'Художественная коллекция Череповца и история музея.',
+      image: 'assets/obj-hud-muzey.jpg',
+      historyImage: 'assets/obj-hud-muzey-history.jpg',
+      icon: ICONS.palette
+    },
+    {
+      id: 'arheologiya',
+      title: 'Музей археологии',
+      shortTitle: 'Музей археологии',
+      kicker: 'Важные объекты · древность края',
+      summary: 'Археологическое наследие края — облик музея и его история.',
+      image: 'assets/obj-arheologiya.jpg',
+      historyImage: 'assets/obj-arheologiya-history.jpg',
+      icon: ICONS.compass
+    },
+    {
+      id: 'afanasiy',
+      title: 'Афанасий и Феодосий',
+      shortTitle: 'Афанасий и Феодосий',
+      kicker: 'Важные объекты · истоки города',
+      summary: 'Памятник основателям Череповецкого Воскресенского монастыря и его история.',
+      image: 'assets/obj-afanasiy.jpg',
+      historyImage: 'assets/obj-afanasiy-history.jpg',
+      icon: ICONS.monument
+    }
+  ];
+
   // Безопасная работа с localStorage
   function loadState() {
     try {
@@ -198,6 +269,7 @@
 
   let state = loadState();
   let currentRouteId = null;
+  let currentObjectId = null;
   let toastTimer = null;
 
   // Таймер для задания «Тихий час»
@@ -217,7 +289,11 @@
   const viewHero = document.getElementById('view-hero');
   const viewRoutes = document.getElementById('view-routes');
   const viewDetail = document.getElementById('view-detail');
+  const viewObjects = document.getElementById('view-objects');
+  const viewObjectDetail = document.getElementById('view-object-detail');
+
   const routesGrid = document.getElementById('routes-grid');
+  const objectsGrid = document.getElementById('objects-grid');
   const overallProgressValue = document.getElementById('overall-progress-value');
   const routeSwitcher = document.getElementById('route-switcher');
   const detailKicker = document.getElementById('detail-kicker');
@@ -226,6 +302,12 @@
   const detailProgressFill = document.getElementById('detail-progress-fill');
   const detailMapImg = document.getElementById('detail-map-img');
   const tasksList = document.getElementById('tasks-list');
+
+  const objectSwitcher = document.getElementById('object-switcher');
+  const objectDetailKicker = document.getElementById('object-detail-kicker');
+  const objectDetailTitle = document.getElementById('object-detail-title');
+  const objectPhotoImg = document.getElementById('object-photo-img');
+  const objectHistoryImg = document.getElementById('object-history-img');
 
   const lightbox = document.getElementById('lightbox');
   const lightboxTitle = document.getElementById('lightbox-title');
@@ -280,8 +362,16 @@
       .replace(/"/g, '&quot;');
   }
 
+  function hideAllViews() {
+    viewHero.classList.add('hidden');
+    viewRoutes.classList.add('hidden');
+    viewDetail.classList.add('hidden');
+    viewObjects.classList.add('hidden');
+    viewObjectDetail.classList.add('hidden');
+  }
+
   // ==========================================================================
-  // Навигация (hash-роутинг, полностью совместимо с Cloudflare Pages)
+  // Навигация (hash-роутинг, полностью совместимо с GitHub Pages и Cloudflare)
   // ==========================================================================
   function navigate(hash) {
     if (window.location.hash !== hash) {
@@ -294,11 +384,11 @@
   function handleRouteChange() {
     const hash = window.location.hash || '#/';
     stopSilenceTimer(false);
+    hideAllViews();
 
     if (hash === '#/routes') {
       currentRouteId = null;
-      viewHero.classList.add('hidden');
-      viewDetail.classList.add('hidden');
+      currentObjectId = null;
       viewRoutes.classList.remove('hidden');
       renderRoutesHub();
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -310,8 +400,7 @@
       const route = ROUTES.find((r) => r.id === id);
       if (route) {
         currentRouteId = route.id;
-        viewHero.classList.add('hidden');
-        viewRoutes.classList.add('hidden');
+        currentObjectId = null;
         viewDetail.classList.remove('hidden');
         renderRouteDetail(route);
         window.scrollTo({ top: 0, behavior: 'instant' });
@@ -319,9 +408,30 @@
       }
     }
 
+    if (hash === '#/objects') {
+      currentRouteId = null;
+      currentObjectId = null;
+      viewObjects.classList.remove('hidden');
+      renderObjectsHub();
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+
+    if (hash.startsWith('#/object/')) {
+      const id = hash.replace('#/object/', '');
+      const obj = IMPORTANT_OBJECTS.find((o) => o.id === id);
+      if (obj) {
+        currentRouteId = null;
+        currentObjectId = obj.id;
+        viewObjectDetail.classList.remove('hidden');
+        renderObjectDetail(obj);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
+    }
+
     currentRouteId = null;
-    viewRoutes.classList.add('hidden');
-    viewDetail.classList.add('hidden');
+    currentObjectId = null;
     viewHero.classList.remove('hidden');
   }
 
@@ -363,6 +473,57 @@
         </button>
       `;
     }).join('');
+  }
+
+  // ==========================================================================
+  // Рендер экрана списка важных объектов (без нумерации)
+  // ==========================================================================
+  function renderObjectsHub() {
+    objectsGrid.innerHTML = IMPORTANT_OBJECTS.map(
+      (obj) => `
+        <button type="button" class="route-card" data-object-id="${obj.id}" role="listitem">
+          <div class="route-card-bg" style="background-image: url('${obj.image}')"></div>
+          <div class="route-card-scrim"></div>
+          <div class="route-card-top">
+            <span class="route-icon-badge" aria-hidden="true">${obj.icon}</span>
+            <span class="route-card-status">Объект и история</span>
+          </div>
+          <div class="route-card-body">
+            <h3 class="route-card-title">${escapeHtml(obj.title)}</h3>
+            <p class="route-card-desc">${escapeHtml(obj.summary)}</p>
+          </div>
+          <div class="route-card-foot">
+            <span class="object-card-meta">Фото и историческая карточка</span>
+            <span class="route-card-open">
+              <span>Открыть</span>
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 10h10m0 0-3.5-3.5M15 10l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </button>
+      `
+    ).join('');
+  }
+
+  // ==========================================================================
+  // Рендер страницы отдельного объекта
+  // ==========================================================================
+  function renderObjectDetail(obj) {
+    objectSwitcher.innerHTML = IMPORTANT_OBJECTS.map(
+      (o) => `
+        <button type="button" class="switcher-pill ${o.id === obj.id ? 'active' : ''}" data-switch-object="${o.id}">
+          ${escapeHtml(o.shortTitle)}
+        </button>
+      `
+    ).join('');
+
+    objectDetailKicker.textContent = obj.kicker;
+    objectDetailTitle.textContent = obj.title;
+    objectPhotoImg.src = obj.image;
+    objectPhotoImg.alt = obj.title;
+    objectHistoryImg.src = obj.historyImage;
+    objectHistoryImg.alt = `${obj.title} — история`;
   }
 
   // ==========================================================================
@@ -785,24 +946,39 @@
   }
 
   // ==========================================================================
-  // Лайтбокс карты (зум + перетаскивание)
+  // Лайтбокс просмотра (зум + перетаскивание) для карт и фото объектов
   // ==========================================================================
   function applyLightboxTransform() {
     lightboxImg.style.transform = `translate(${panX}px, ${panY}px) scale(${zoomScale})`;
     zoomLevelEl.textContent = `${Math.round(zoomScale * 100)}%`;
   }
 
-  function openLightbox() {
-    const route = ROUTES.find((r) => r.id === currentRouteId);
-    if (!route) return;
-    lightboxTitle.textContent = route.title;
-    lightboxImg.src = route.image;
-    lightboxImg.alt = `Карта: ${route.title}`;
+  function openLightboxImage(src, title) {
+    if (!src) return;
+    lightboxTitle.textContent = title || 'Просмотр';
+    lightboxImg.src = src;
+    lightboxImg.alt = title || 'Изображение';
     zoomScale = 1;
     panX = 0;
     panY = 0;
     applyLightboxTransform();
     lightbox.classList.remove('hidden');
+  }
+
+  function openRouteMapLightbox() {
+    const route = ROUTES.find((r) => r.id === currentRouteId);
+    if (!route) return;
+    openLightboxImage(route.image, route.title);
+  }
+
+  function openObjectLightbox(kind) {
+    const obj = IMPORTANT_OBJECTS.find((o) => o.id === currentObjectId);
+    if (!obj) return;
+    if (kind === 'history') {
+      openLightboxImage(obj.historyImage, `${obj.title} — История`);
+    } else {
+      openLightboxImage(obj.image, obj.title);
+    }
   }
 
   function closeLightbox() {
@@ -822,8 +998,11 @@
   // Обработчики событий
   // ==========================================================================
   document.getElementById('btn-to-routes').addEventListener('click', () => navigate('#/routes'));
+  document.getElementById('btn-to-objects').addEventListener('click', () => navigate('#/objects'));
   document.getElementById('btn-back-home').addEventListener('click', () => navigate('#/'));
+  document.getElementById('btn-objects-back-home').addEventListener('click', () => navigate('#/'));
   document.getElementById('btn-back-routes').addEventListener('click', () => navigate('#/routes'));
+  document.getElementById('btn-back-objects').addEventListener('click', () => navigate('#/objects'));
 
   routesGrid.addEventListener('click', (e) => {
     const card = e.target.closest('[data-route-id]');
@@ -831,10 +1010,22 @@
     navigate(`#/route/${card.dataset.routeId}`);
   });
 
+  objectsGrid.addEventListener('click', (e) => {
+    const card = e.target.closest('[data-object-id]');
+    if (!card) return;
+    navigate(`#/object/${card.dataset.objectId}`);
+  });
+
   routeSwitcher.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-switch-route]');
     if (!btn) return;
     navigate(`#/route/${btn.dataset.switchRoute}`);
+  });
+
+  objectSwitcher.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-switch-object]');
+    if (!btn) return;
+    navigate(`#/object/${btn.dataset.switchObject}`);
   });
 
   // Делегирование событий в списке заданий
@@ -966,9 +1157,14 @@
     }
   });
 
-  // Лайтбокс
-  document.getElementById('btn-open-lightbox').addEventListener('click', openLightbox);
-  document.getElementById('map-image-trigger').addEventListener('click', openLightbox);
+  // Лайтбокс (карты маршрутов + фото/история объектов)
+  document.getElementById('btn-open-lightbox').addEventListener('click', openRouteMapLightbox);
+  document.getElementById('map-image-trigger').addEventListener('click', openRouteMapLightbox);
+  document.getElementById('btn-open-object-photo').addEventListener('click', () => openObjectLightbox('photo'));
+  document.getElementById('object-photo-trigger').addEventListener('click', () => openObjectLightbox('photo'));
+  document.getElementById('btn-open-object-history').addEventListener('click', () => openObjectLightbox('history'));
+  document.getElementById('object-history-trigger').addEventListener('click', () => openObjectLightbox('history'));
+
   document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
   document.getElementById('lightbox-backdrop').addEventListener('click', closeLightbox);
   document.getElementById('zoom-in').addEventListener('click', () => adjustZoom(0.4));

@@ -133,10 +133,19 @@ img {
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.55);
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.95rem;
+}
+
 /* Несильно контрастирующая немного прозрачная кнопка */
 .hero-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.65rem;
   padding: 0.92rem 1.85rem;
   border-radius: 999px;
@@ -288,7 +297,7 @@ img {
 }
 
 /* ==========================================================================
-   Экран выбора 5 маршрутов (без нумерации, лаконично и элегантно)
+   Экран выбора маршрутов и важных объектов (без нумерации, лаконично)
    ========================================================================== */
 .section-intro {
   max-width: 620px;
@@ -341,8 +350,8 @@ img {
   z-index: -2;
   background-size: cover;
   background-position: center;
-  opacity: 0.14;
-  filter: grayscale(40%) contrast(1.05);
+  opacity: 0.16;
+  filter: grayscale(35%) contrast(1.05);
   transition: opacity 380ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1), filter 380ms ease;
 }
 
@@ -363,8 +372,8 @@ img {
 
 .route-card:hover .route-card-bg,
 .route-card:focus-visible .route-card-bg {
-  opacity: 0.25;
-  filter: grayscale(10%) contrast(1.08);
+  opacity: 0.28;
+  filter: grayscale(8%) contrast(1.08);
   transform: scale(1.04);
 }
 
@@ -461,6 +470,11 @@ img {
   background: var(--success);
 }
 
+.object-card-meta {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
 .route-card-open {
   display: inline-flex;
   align-items: center;
@@ -481,7 +495,7 @@ img {
 }
 
 /* ==========================================================================
-   Страница отдельного маршрута
+   Страница отдельного маршрута и отдельного объекта
    ========================================================================== */
 .route-switcher {
   display: flex;
@@ -595,7 +609,7 @@ img {
   color: var(--danger);
 }
 
-/* Карта маршрута */
+/* Карта маршрута и карточки изображений объекта */
 .map-card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -603,6 +617,15 @@ img {
   overflow: hidden;
   margin-bottom: 2.2rem;
   box-shadow: var(--shadow-soft);
+}
+
+.object-gallery {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.object-media-card {
+  margin-bottom: 0;
 }
 
 .map-card-head {
@@ -638,6 +661,10 @@ img {
   margin: 0 auto;
   background: #10161f;
   transition: transform 350ms ease;
+}
+
+.object-img {
+  max-height: 620px;
 }
 
 .map-image-wrap:hover .detail-map-img {
@@ -1296,6 +1323,16 @@ img {
 @media (max-width: 640px) {
   .container {
     padding: 1.4rem 1rem 3rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero-cta {
+    width: 100%;
   }
 
   .task-card {
